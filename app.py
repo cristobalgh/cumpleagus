@@ -13,7 +13,7 @@ def index():
 
     mi_cumple = datetime.datetime(2020,8,10,0,0,0)
     dtt = abs(mi_cumple - now)
-    edad = dt.years
+    edad = dtt.years
 
     si_cumple = now.month==my_birthday.month and now.day==my_birthday.day
 
