@@ -11,9 +11,11 @@ def index():
     #hora de nacimiento real, los segundos son invento mio...
     #(año, mes, dia, hora, minuto, segundos)
 
-    mi_cumple = datetime.datetime(2020,8,10,0,0,0)
-    dtt = abs(mi_cumple - now)
-    edad = dtt.years
+    nacio = 2020
+    edad = now.year - nacio
+
+    if my_birthday < now:
+        edad = edad + 1
 
     si_cumple = now.month==my_birthday.month and now.day==my_birthday.day
 
@@ -66,6 +68,7 @@ def index():
     segs = str(display_time(round(dt.total_seconds())))
 
     return render_template("index.html", edad=edad, si_cumple=si_cumple, falta=falta, segs=segs, horas=horas)
+   # return render_template("index.html", si_cumple=si_cumple, falta=falta, segs=segs, horas=horas)
 
 if __name__=="__main__":
     app.run()
